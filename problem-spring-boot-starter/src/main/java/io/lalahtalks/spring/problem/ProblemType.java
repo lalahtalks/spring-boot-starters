@@ -11,14 +11,13 @@ public interface ProblemType {
 
     String getTitle();
 
-    int getHttpStatusCode();
+    Status getHttpStatus();
 
     default Problem toProblem(String detail) {
-        var status = Status.valueOf(getHttpStatusCode());
         return Problem.builder()
                 .withType(getType())
                 .withTitle(getTitle())
-                .withStatus(status)
+                .withStatus(getHttpStatus())
                 .withDetail(detail)
                 .build();
     }
