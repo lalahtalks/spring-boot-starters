@@ -1,5 +1,6 @@
 package io.lalahtalks.spring.http.client;
 
+import io.lalahtalks.spring.http.client.log.LoggingFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -18,6 +19,7 @@ public class WebClientFactory {
 
     private final ReactiveClientRegistrationRepository clientRegistrations;
     private final LoggingFilter loggingFilter;
+    private final WebClient.Builder webClientBuilder;
 
     public WebClient create(HttpApiClientProperties properties) {
         var inMemory = new InMemoryReactiveOAuth2AuthorizedClientService(clientRegistrations);
@@ -25,7 +27,7 @@ public class WebClientFactory {
         var oauth2Filter = new ServerOAuth2AuthorizedClientExchangeFilterFunction(authorizedClientManager);
         oauth2Filter.setDefaultClientRegistrationId(REALM_LALAHTALKS);
 
-        return WebClient.builder()
+        return webClientBuilder
                 .baseUrl(properties.getUrl())
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .filter(oauth2Filter)

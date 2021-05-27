@@ -1,4 +1,4 @@
-package io.lalahtalks.spring.http.client;
+package io.lalahtalks.spring.http.client.log;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
