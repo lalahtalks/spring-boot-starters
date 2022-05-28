@@ -11,35 +11,30 @@
     </parent>
 
     <artifactId>spring-boot-starters</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
+        <module>http-client-spring-boot-starter</module>
         <module>problem-spring-boot-starter</module>
         <module>server-spring-boot-starter</module>
-        <module>http-client-spring-boot-starter</module>
     </modules>
 
     <properties>
-        <problem.version>0.25.0</problem.version>
-        <problem-spring-webflux.version>0.26.2</problem-spring-webflux.version>
-        <logback-access-spring-boot-starter.version>2.7.1</logback-access-spring-boot-starter.version>
+        <logback-access-spring-boot-starter.version>3.3.0</logback-access-spring-boot-starter.version>
+        <problem.version>0.27.1</problem.version>
+        <problem-spring-webflux.version>0.27.0</problem-spring-webflux.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>problem-spring-boot-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.zalando</groupId>
                 <artifactId>jackson-datatype-problem</artifactId>
                 <version>${problem.version}</version>
             </dependency>
             <dependency>
-                <groupId>net.rakugakibox.spring.boot</groupId>
+                <groupId>dev.akkinoc.spring.boot</groupId>
                 <artifactId>logback-access-spring-boot-starter</artifactId>
                 <version>${logback-access-spring-boot-starter.version}</version>
             </dependency>
@@ -47,6 +42,11 @@
                 <groupId>org.zalando</groupId>
                 <artifactId>problem</artifactId>
                 <version>${problem.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>problem-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.zalando</groupId>

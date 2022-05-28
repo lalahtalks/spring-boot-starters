@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>spring-boot-starters</artifactId>
         <groupId>io.lalahtalks</groupId>
+        <artifactId>spring-boot-starters</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

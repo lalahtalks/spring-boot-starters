@@ -1,6 +1,5 @@
 package io.lalahtalks.spring.server.security;
 
-import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,7 +20,7 @@ public class MyJwtAuthenticationConverter implements Converter<Jwt, Mono<JwtAuth
     private static final String CLAIM_SCOPE = "scope";
 
     @Override
-    public Mono<JwtAuthenticationToken> convert(@NonNull Jwt jwt) {
+    public Mono<JwtAuthenticationToken> convert(Jwt jwt) {
         var authorities = extractAuthorities(jwt);
         var token = new JwtAuthenticationToken(jwt, authorities);
         return Mono.just(token);
@@ -33,7 +32,7 @@ public class MyJwtAuthenticationConverter implements Converter<Jwt, Mono<JwtAuth
     }
 
     private Stream<GrantedAuthority> extractScopes(Jwt jwt) {
-        if (jwt.containsClaim(CLAIM_SCOPE)) {
+        if (jwt.hasClaim(CLAIM_SCOPE)) {
             return Arrays.stream(jwt.getClaimAsString(CLAIM_SCOPE).split(" "))
                     .map(it -> new SimpleGrantedAuthority(SCOPE_PREFIX + it));
         }
