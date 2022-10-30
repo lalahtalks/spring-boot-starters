@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <logback-access-spring-boot-starter.version>3.3.0</logback-access-spring-boot-starter.version>
+        <logback-access-spring-boot-starter.version>3.4.1</logback-access-spring-boot-starter.version>
         <problem.version>0.27.1</problem.version>
         <problem-spring-webflux.version>0.27.0</problem-spring-webflux.version>
     </properties>
